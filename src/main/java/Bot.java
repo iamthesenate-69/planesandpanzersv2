@@ -20,7 +20,7 @@ public class Bot {
         prefix = _prefix;
         build(bot);
         AddCommands();
-        Data.LoadMap();
+        LoadMap.Generate();
     }
 
     void AddCommands() {
