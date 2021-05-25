@@ -1,0 +1,6 @@
+Germany,Western Europe,Eastern Europe,Southern Europe,Balkans
+Western Europe,Germany,Southern Europe
+Southern Europe,Western Europe,Germany,Balkans
+Balkans,Southern Europe,Germany,Eastern Europe,Ukraine S.S.R.
+Eastern Europe,Germany,Balkans,Ukraine S.S.R.
+Ukraine,Eastern Europe,Balkans
