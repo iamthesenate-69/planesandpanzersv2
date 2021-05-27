@@ -2,6 +2,7 @@ import commands.*;
 import datatypes.Commands;
 import datatypes.API;
 import datatypes.Data;
+import datatypes.LoadMap;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import javax.security.auth.login.LoginException;
@@ -28,7 +29,9 @@ public class Bot {
         add(new CreateLobby());
         add(new InfoLobby());
         add(new LeaveLobby());
-        add(new Debug()); //remove later
+        //remove later
+        add(new Debug());
+        add(new DebugCountry())
 ;    }
 
     void add(Commands c) {

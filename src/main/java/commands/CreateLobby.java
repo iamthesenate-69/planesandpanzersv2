@@ -2,6 +2,7 @@ package commands;
 
 import datatypes.Commands;
 import datatypes.Data;
+import datatypes.Team;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.User;
@@ -34,7 +35,7 @@ public class CreateLobby extends Commands {
             eb.setFooter("Every player react to this message to start");
 
             event.getMessage().reply(eb.build()).queue(m ->
-                    Data.reactionCheck.put(m, new Data.Team(players, host)));
+                    Data.reactionCheck.put(m, new Team(players, host)));
         }
 
     }
