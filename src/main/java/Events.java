@@ -1,12 +1,12 @@
 import datatypes.Data;
+import datatypes.Game;
+import datatypes.Team;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
-import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,15 +34,15 @@ public class Events extends ListenerAdapter {
         Message msg = event.retrieveMessage().complete();
 
         if (Data.reactionCheck.containsKey(msg)) {
-            Data.Team team = Data.reactionCheck.get(msg);
+            Team team = Data.reactionCheck.get(msg);
 
             User[] playersInParty = team.getPlayers();
             List<User> usersReacted = getUsersReacted(msg);
 
             if (ListContains(playersInParty, usersReacted)) {
-                msg.reply("Poggers").queue();
+                msg.reply("New Game Created").queue();
                 Data.reactionCheck.remove(msg);
-                Data.games.put(team.getHost(), new Data.Game(team));
+                Data.games.put(team.getHost(), new Game(team));
             }
         }
     }
