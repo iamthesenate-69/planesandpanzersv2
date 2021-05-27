@@ -29,6 +29,7 @@ public class Bot {
         add(new CreateLobby());
         add(new InfoLobby());
         add(new LeaveLobby());
+        add(new OrderUnits());
         //remove later
         add(new Debug());
         add(new DebugCountry())
