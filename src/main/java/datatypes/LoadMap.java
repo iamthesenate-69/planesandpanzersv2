@@ -1,14 +1,14 @@
 package datatypes;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class LoadMap {
     public static void Generate() throws IOException {
@@ -38,7 +38,14 @@ public class LoadMap {
     }
 
     private static void generateIndices() throws IOException {
-        String[] names = Files.readString(Paths.get(Data.landPath), StandardCharsets.US_ASCII).replace("\r\n", ",").split(",");
+        List<String> text = new ArrayList<String>(0);
+        Scanner nameScanner = new Scanner(new File(String.valueOf(Paths.get(Data.landPath))));
+        while (nameScanner.hasNextLine()) {
+            text.add(nameScanner.nextLine());
+        }
+        String str = String.join(",", text);
+        String[] names = str.split(",");
+
         int i = 0;
         for (String country : names) {
             if (!Data.countries.contains(country)) {
